@@ -80,12 +80,6 @@ button:hover {
 }
 
 
-.buttons {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
 
 #prevBtn, #nextBtn {
   background: #00b4d8;
@@ -198,4 +192,5 @@ button:hover {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 
