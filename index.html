@@ -10,15 +10,21 @@
   <h1>🎓 Kenangan & Ucapan dari kami 🎓 </h1>
 
   <div class="card">
-    <div class="message-section">
-  <h2>Tinggalkan Ucapan 💬</h2>
-  <input type="text" id="name" placeholder="Nama anda">
-  <textarea id="message" placeholder="Tulis ucapan anda di sini..."></textarea>
-  <button id="sendBtn">Hantar</button>
+   <div class="message-section">
+  <h2>💬 Tinggalkan Ucapan</h2>
+  
+  <form id="messageForm">
+    <div class="input-row">
+      <input type="text" id="name" placeholder="Nama anda" required>
+      <textarea id="message" placeholder="Tulis ucapan anda di sini..." required></textarea>
+    </div>
+    <button type="submit" id="sendBtn">Hantar</button>
+  </form>
 
-  <h3>Mesej Terkini:</h3>
+  <h3>🌟 Mesej Terkini</h3>
   <div id="messageList"></div>
 </div>
+
 
 <script>
   const apiUrl = "https://script.google.com/macros/s/AKfycbymNHGi86H6ekxTJQg5mZVoPbrckXTQ-9-UmSCtJjm26Mm2e1px_3o9ldFL9st-5Yh-/exec";
@@ -133,6 +139,7 @@
   </script>
 </body>
 </html>
+
 
 
 
