@@ -55,3 +55,33 @@ button:hover {
   from {opacity: 0;}
   to {opacity: 1;}
 }
+#kenangan {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+#nextBtn {
+  margin-top: 15px;
+  background: #00b4d8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#nextBtn:hover {
+  background: #48cae4;
+}
+
+
