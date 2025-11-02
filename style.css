@@ -83,24 +83,3 @@ button:hover {
 #nextBtn:hover {
   background: #48cae4;
 }
-/* Heading background */
-.heading-box {
-  background: rgba(0, 0, 0, 0.6); /* separa gelap, macam kaca */
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 15px;
-  display: inline-block;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  margin-top: 20px;
-}
-
-/* Pusatkan heading */
-h1 {
-  text-align: center;
-  font-size: 1.6em;
-  line-height: 1.4em;
-}
-
-
-
