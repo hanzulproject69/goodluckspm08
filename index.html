@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -8,77 +7,57 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">🏠 HOME</a></li>
+      <li><a href="#info">ℹ️ INFO</a></li>
+      <li><a href="#event">🎉 EVENT</a></li>
+      <li><a href="#wishlist">🎁 WISHLIST</a></li>
+      <li><a href="#lepak">❤️ KACIP</a></li>
+    </ul>
+  </nav>
 
+  <!-- ========== HOME ========== -->
+  <section id="home">
+    <h1>🎓 Kenangan & Ucapan dari kami 🎓</h1>
 
- <h1>🎓 Kenangan & Ucapan dari kami 🎓 </h1>
-
-  <div class="card">
-   <div class="message-section">
-  <h2>💬 Tinggalkan Ucapan</h2>
-  
-  <form id="messageForm">
-    <div class="input-row">
-      <input type="text" id="name" placeholder="Nama anda" required>
-      <textarea id="message" placeholder="Tulis ucapan anda di sini..." required></textarea>
-    </div>
-    <button type="submit" id="sendBtn">Hantar</button>
-  </form>
-
-  <h3>🌟 Mesej Terkini</h3>
-  <div id="messageList"></div>
-</div>
-
-
-<script>
-  const apiUrl = "https://script.google.com/macros/s/AKfycbymNHGi86H6ekxTJQg5mZVoPbrckXTQ-9-UmSCtJjm26Mm2e1px_3o9ldFL9st-5Yh-/exec";
-
-  // Hantar mesej
-  document.getElementById("sendBtn").addEventListener("click", async () => {
-    const name = document.getElementById("name").value.trim();
-    const message = document.getElementById("message").value.trim();
-    if (!name || !message) return alert("Isi nama dan mesej dulu ya!");
-
-    await fetch(apiUrl, {
-      method: "POST",
-      body: JSON.stringify({ name, message })
-    });
-
-    document.getElementById("message").value = "";
-    loadMessages();
-  });
-
-  // Papar mesej
-  async function loadMessages() {
-    const res = await fetch(apiUrl);
-    const data = await res.json();
-    const messageList = document.getElementById("messageList");
-    messageList.innerHTML = data.reverse().map(m => `
-      <div class="msg">
-        <strong>${m.name}</strong>: ${m.message}<br>
-        <small>${new Date(m.time).toLocaleString()}</small>
+    <div class="card">
+      <img id="kenangan" src="kenangan1.jpg" alt="Kenangan SPM" />
+      <div class="buttons">
+        <button id="prevBtn">⬅️ Sebelum</button>
+        <button id="nextBtn">➡️ Seterusnya</button>
       </div>
-    `).join("");
-  }
-
-  loadMessages();
-</script>
-
-    <img id="kenangan" src="kenangan1.jpg" alt="Kenangan SPM" />
-    
-    <div class="buttons">
-      <button id="prevBtn">⬅️ Sebelum</button>
-      <button id="nextBtn">➡️ Seterusnya</button>
     </div>
-  </div>
 
-  <p class="footer">Dari: <strong>[ 5 Battuta ]</strong></p>
+    <p class="footer">Dari: <strong>[ 5 Battuta ]</strong></p>
+  </section>
 
+  <!-- ========== KACIP / MESEJ ========== -->
+  <section id="lepak">
+    <div class="message-section">
+      <h2>💬 Tinggalkan Ucapan</h2>
+      <form id="messageForm">
+        <div class="input-row">
+          <input type="text" id="name" placeholder="Nama anda" required>
+          <textarea id="message" placeholder="Tulis ucapan anda di sini..." required></textarea>
+        </div>
+        <button type="submit" id="sendBtn">Hantar</button>
+      </form>
+
+      <h3>🌟 Mesej Terkini</h3>
+      <div id="messageList"></div>
+    </div>
+  </section>
+
+  <!-- ========== AUDIO ========== -->
   <audio id="bgMusic" src="semangat.mp3" autoplay loop></audio>
   <button id="muteBtn">🔊</button>
 
   <script src="music.js"></script>
 
   <script>
+    /* ---------- GALLERY ---------- */
     const images = [
       "kenangan1.jpg",
       "kenangan2.jpg",
@@ -108,7 +87,6 @@
     });
 
     function updateImage() {
-      // Kalau gambar terakhir -> tunjuk mesej
       if (currentIndex >= images.length) {
         img.style.display = 'none';
         nextBtn.style.display = 'none';
@@ -120,35 +98,54 @@
         return;
       }
 
-      // Kalau kembali dari mesej ke gambar terakhir
       if (currentIndex < images.length) {
         img.style.display = 'block';
         nextBtn.style.display = 'inline-block';
       }
 
-      // Tukar gambar
       img.src = images[currentIndex];
       img.classList.remove('fadeIn');
       void img.offsetWidth;
       img.classList.add('fadeIn');
 
-      // Kawal paparan butang "Sebelum"
       if (currentIndex === 0) {
         prevBtn.style.display = 'none';
       } else {
         prevBtn.style.display = 'inline-block';
       }
     }
+
+    /* ---------- MESEJ GOOGLE SCRIPT ---------- */
+    const apiUrl = "https://script.google.com/macros/s/AKfycbymNHGi86H6ekxTJQg5mZVoPbrckXTQ-9-UmSCtJjm26Mm2e1px_3o9ldFL9st-5Yh-/exec";
+
+    document.getElementById("sendBtn").addEventListener("click", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!name || !message) return alert("Isi nama dan mesej dulu ya!");
+
+      await fetch(apiUrl, {
+        method: "POST",
+        body: JSON.stringify({ name, message })
+      });
+
+      document.getElementById("message").value = "";
+      loadMessages();
+    });
+
+    async function loadMessages() {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      const messageList = document.getElementById("messageList");
+      messageList.innerHTML = data.reverse().map(m => `
+        <div class="msg">
+          <strong>${m.name}</strong>: ${m.message}<br>
+          <small>${new Date(m.time).toLocaleString()}</small>
+        </div>
+      `).join("");
+    }
+
+    loadMessages();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
