@@ -120,4 +120,103 @@ button:hover {
   border-radius: 10px;
   font-size: 0.9em;
 }
+/* Ruangan mesej keseluruhan */
+.message-section {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 25px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 600px;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Tajuk */
+.message-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Susunan input & textarea */
+.input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.message-section input,
+.message-section textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1em;
+  outline: none;
+}
+
+/* Untuk skrin besar, sejajarkan input dan textarea sebelah */
+@media (min-width: 600px) {
+  .input-row {
+    flex-direction: row;
+  }
+  .message-section input {
+    width: 40%;
+  }
+  .message-section textarea {
+    width: 60%;
+  }
+}
+
+/* Butang hantar */
+#sendBtn {
+  background: #FFD60A;
+  color: #000;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#sendBtn:hover {
+  background: #ffc300;
+  transform: scale(1.05);
+}
+
+/* Paparan mesej */
+#messageList {
+  margin-top: 15px;
+  text-align: left;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Setiap mesej */
+.msg {
+  background: rgba(0,0,0,0.45);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  animation: fadeIn 0.4s ease;
+}
+
+.msg strong {
+  color: #FFD60A;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 
