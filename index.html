@@ -11,7 +11,11 @@
 
   <div class="card">
     <img id="kenangan" src="kenangan1.jpg" alt="Kenangan SPM" />
-    <button id="nextBtn">➡️ Seterusnya</button>
+    
+    <div class="buttons">
+      <button id="prevBtn" style="display:none;">⬅️ Sebelum</button>
+      <button id="nextBtn">➡️ Seterusnya</button>
+    </div>
   </div>
 
   <p class="footer">Dari: <strong>[Nama Kau]</strong></p>
@@ -32,23 +36,50 @@
 
     const img = document.getElementById('kenangan');
     const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
 
     nextBtn.addEventListener('click', () => {
       currentIndex++;
-      if (currentIndex < images.length) {
-        img.src = images[currentIndex];
-        img.classList.remove('fadeIn');
-        void img.offsetWidth; // reset animation
-        img.classList.add('fadeIn');
-      } else {
-        nextBtn.style.display = 'none';
+      updateImage();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex--;
+      updateImage();
+    });
+
+    function updateImage() {
+      // Kalau gambar terakhir -> tunjuk mesej
+      if (currentIndex >= images.length) {
         img.style.display = 'none';
+        nextBtn.style.display = 'none';
+        prevBtn.style.display = 'none';
         const msg = document.createElement('h2');
         msg.textContent = "✨ Good Luck Semua Calon SPM 2025! ✨";
         msg.classList.add('fadeIn');
         document.body.appendChild(msg);
+        return;
       }
-    });
+
+      // Kalau kembali dari mesej ke gambar terakhir
+      if (currentIndex < images.length) {
+        img.style.display = 'block';
+        nextBtn.style.display = 'inline-block';
+      }
+
+      // Tukar gambar
+      img.src = images[currentIndex];
+      img.classList.remove('fadeIn');
+      void img.offsetWidth;
+      img.classList.add('fadeIn');
+
+      // Kawal paparan butang "Sebelum"
+      if (currentIndex === 0) {
+        prevBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'inline-block';
+      }
+    }
   </script>
 </body>
 </html>
