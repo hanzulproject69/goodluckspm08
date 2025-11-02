@@ -3,146 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Good Luck SPM 2025!</title>
+  <title>Good Luck SPM!</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* ========== NAVBAR ========== */
-    .navbar {
-      background: #333;
-      padding: 12px 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: 0.3s;
-    }
-    .navbar a:hover {
-      color: #FFD60A;
-    }
-
-    /* ========== SECTIONS ========== */
-    section {
-      padding: 50px 20px;
-      text-align: center;
-      color: white;
-      margin: 30px auto;
-      width: 90%;
-      max-width: 800px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-
-    h1, h2, h3 {
-      color: #fff;
-    }
-
-    /* ========== KENANGAN (HOME) ========== */
-    .card img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 15px;
-      margin-top: 20px;
-      transition: opacity 0.5s;
-    }
-
-    .buttons {
-      margin-top: 15px;
-    }
-
-    button {
-      background: #FFD60A;
-      border: none;
-      color: black;
-      padding: 10px 18px;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #ffea7f;
-    }
-
-    /* ========== MESEJ SECTION (KACIP) ========== */
-    .message-section {
-      background: rgba(0,0,0,0.3);
-      border-radius: 20px;
-      padding: 20px;
-    }
-
-    .input-row {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    input, textarea {
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      width: 100%;
-    }
-
-    #messageList {
-      margin-top: 20px;
-      text-align: left;
-    }
-
-    .msg {
-      background: rgba(255,255,255,0.1);
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-
-    /* ========== AUDIO BUTTON ========== */
-    #muteBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #FFD60A;
-      border-radius: 50%;
-      padding: 10px 14px;
-    }
-
-    body {
-      background: url('bg.jpg') center/cover fixed;
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
 </head>
 <body>
-  <!-- ===== NAVBAR ===== -->
+  <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
     <ul>
       <li><a href="#home">🏠 HOME</a></li>
       <li><a href="#info">ℹ️ INFO</a></li>
       <li><a href="#event">🎉 EVENT</a></li>
       <li><a href="#wishlist">🎁 WISHLIST</a></li>
-      <li><a href="#kacip">❤️ KACIP</a></li>
+      <li><a href="#lepak">❤️ KACIP</a></li>
     </ul>
   </nav>
 
-  <!-- ===== HOME SECTION ===== -->
+  <!-- ========== HOME ========== -->
   <section id="home">
-    <h1>🎓 Kenangan & Semangat SPM 2025 🎓</h1>
+    <h1>🎓 Kenangan & Ucapan dari kami 🎓</h1>
 
     <div class="card">
       <img id="kenangan" src="kenangan1.jpg" alt="Kenangan SPM" />
@@ -155,45 +33,8 @@
     <p class="footer">Dari: <strong>[ 5 Battuta ]</strong></p>
   </section>
 
-  <!-- ===== INFO SECTION ===== -->
-  <section id="info">
-    <h2>ℹ️ Info Kelas 5 Battuta</h2>
-    <div class="info-card">
-      <h3>🧑‍🏫 Guru & Subjek</h3>
-      <ul style="list-style:none; padding:0;">
-        <li>Cikgu Aina — Bahasa Melayu</li>
-        <li>Cikgu Azri — Matematik</li>
-        <li>Cikgu Siti — Sejarah</li>
-        <li>Cikgu Farid — Sains</li>
-        <li>Cikgu Hani — Bahasa Inggeris</li>
-      </ul>
-    </div>
-
-    <div class="info-card">
-      <h3>👩‍🎓 Ahli Kelas</h3>
-      <p>Amirul, Syafiqah, Hafiz, Nadia, Farah, Hanzul dan ramai lagi!</p>
-    </div>
-  </section>
-
-  <!-- ===== EVENT SECTION ===== -->
-  <section id="event">
-    <h2>🎉 Aktiviti & Kenangan</h2>
-    <p>📅 Jamuan Akhir Tahun - 15 November 2025</p>
-    <p>🎓 Hari Graduasi - 20 November 2025</p>
-  </section>
-
-  <!-- ===== WISHLIST SECTION ===== -->
-  <section id="wishlist">
-    <h2>🎁 Harapan & Impian Kami</h2>
-    <div class="wish">
-      <p>"Semoga semua calon SPM berjaya dengan cemerlang!" - Farah</p>
-      <p>"Nak kekal rapat walaupun dah habis sekolah 😭" - Hafiz</p>
-      <p>"Jumpa masa reunion nanti!" - Nadia</p>
-    </div>
-  </section>
-
-  <!-- ===== KACIP SECTION ===== -->
-  <section id="kacip">
+  <!-- ========== KACIP / MESEJ ========== -->
+  <section id="lepak">
     <div class="message-section">
       <h2>💬 Tinggalkan Ucapan</h2>
       <form id="messageForm">
@@ -209,18 +50,25 @@
     </div>
   </section>
 
-  <!-- ===== AUDIO ===== -->
+  <!-- ========== AUDIO ========== -->
   <audio id="bgMusic" src="semangat.mp3" autoplay loop></audio>
   <button id="muteBtn">🔊</button>
 
-  <!-- ===== JAVASCRIPT ===== -->
   <script src="music.js"></script>
 
   <script>
-    /* ========== GALLERY SCRIPT ========== */
+    /* ---------- GALLERY ---------- */
     const images = [
-      "kenangan1.jpg","kenangan2.jpg","kenangan3.jpg",
-      "kenangan4.jpg","kenangan5.jpg","kenangan6.jpg"
+      "kenangan1.jpg",
+      "kenangan2.jpg",
+      "kenangan3.jpg",
+      "kenangan4.jpg",
+      "kenangan5.jpg",
+      "kenangan6.jpg",
+      "kenangan7.jpg",
+      "kenangan8.jpg",
+      "kenangan9.jpg",
+      "kenangan10.jpg"
     ];
     let currentIndex = 0;
 
@@ -232,18 +80,42 @@
       currentIndex++;
       updateImage();
     });
+
     prevBtn.addEventListener('click', () => {
       currentIndex--;
       updateImage();
     });
 
     function updateImage() {
-      if (currentIndex >= images.length) currentIndex = 0;
-      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) {
+        img.style.display = 'none';
+        nextBtn.style.display = 'none';
+        prevBtn.style.display = 'none';
+        const msg = document.createElement('h2');
+        msg.textContent = "✨ Good Luck Semua Calon SPM 2025! ✨";
+        msg.classList.add('fadeIn');
+        document.body.appendChild(msg);
+        return;
+      }
+
+      if (currentIndex < images.length) {
+        img.style.display = 'block';
+        nextBtn.style.display = 'inline-block';
+      }
+
       img.src = images[currentIndex];
+      img.classList.remove('fadeIn');
+      void img.offsetWidth;
+      img.classList.add('fadeIn');
+
+      if (currentIndex === 0) {
+        prevBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'inline-block';
+      }
     }
 
-    /* ========== MESSAGE FORM ========== */
+    /* ---------- MESEJ GOOGLE SCRIPT ---------- */
     const apiUrl = "https://script.google.com/macros/s/AKfycbymNHGi86H6ekxTJQg5mZVoPbrckXTQ-9-UmSCtJjm26Mm2e1px_3o9ldFL9st-5Yh-/exec";
 
     document.getElementById("sendBtn").addEventListener("click", async (e) => {
@@ -272,17 +144,8 @@
         </div>
       `).join("");
     }
-    loadMessages();
 
-    /* ========== SMOOTH SCROLL NAVIGATION ========== */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+    loadMessages();
   </script>
 </body>
 </html>
