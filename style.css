@@ -83,3 +83,41 @@ button:hover {
 #nextBtn:hover {
   background: #48cae4;
 }
+.message-section {
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 450px;
+  color: white;
+}
+
+.message-section input,
+.message-section textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1em;
+}
+
+#sendBtn {
+  margin-top: 10px;
+  background: #00b4d8;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.msg {
+  background: rgba(0,0,0,0.5);
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
