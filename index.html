@@ -3,65 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kenangan SPM</title>
-  <style>
-    body {
-      text-align: center;
-      background: #111;
-      color: white;
-      font-family: Arial;
-    }
-
-    img {
-      width: 90%;
-      max-width: 400px;
-      border-radius: 15px;
-      display: block;
-      margin: 20px auto;
-    }
-
-    button {
-      background: #00b4d8;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 18px;
-    }
-
-    button:hover {
-      background: #48cae4;
-    }
-  </style>
+  <title>Good Luck SPM!</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>🎓 Kenangan & Semangat SPM 2025 🎓</h1>
 
-  <!-- Gambar pertama -->
-  <img id="gambar" src="kenangan1.jpg" alt="Kenangan">
+  <div class="card">
+    <img id="kenangan" src="kenangan1.jpg" alt="Kenangan SPM" />
+    <button id="nextBtn">➡️ Seterusnya</button>
+  </div>
 
-  <!-- Butang untuk tukar gambar -->
-  <button id="nextBtn">➡️ Seterusnya</button>
+  <p class="footer">Dari: <strong>[Nama Kau]</strong></p>
+
+  <audio id="bgMusic" src="semangat.mp3" autoplay loop></audio>
+  <button id="muteBtn">🔊</button>
+
+  <script src="music.js"></script>
 
   <script>
-    // Senarai gambar kenangan
-    const gambarList = ["kenangan1.jpg", "kenangan2.jpg", "kenangan3.jpg"];
-    let index = 0;
+    const images = [
+      "kenangan1.jpg",
+      "kenangan2.jpg",
+      "kenangan3.jpg",
+      "kenangan4.jpg"
+    ];
+    let currentIndex = 0;
 
-    const gambar = document.getElementById("gambar");
-    const nextBtn = document.getElementById("nextBtn");
+    const img = document.getElementById('kenangan');
+    const nextBtn = document.getElementById('nextBtn');
 
-    nextBtn.addEventListener("click", function() {
-      index++;
-      if (index < gambarList.length) {
-        gambar.src = gambarList[index]; // tukar gambar
+    nextBtn.addEventListener('click', () => {
+      currentIndex++;
+      if (currentIndex < images.length) {
+        img.src = images[currentIndex];
+        img.classList.remove('fadeIn');
+        void img.offsetWidth; // reset animation
+        img.classList.add('fadeIn');
       } else {
-        // kalau dah habis gambar
-        gambar.style.display = "none";
-        nextBtn.style.display = "none";
-        const mesej = document.createElement("h2");
-        mesej.textContent = "✨ Good Luck Semua Calon SPM 2025! ✨";
-        document.body.appendChild(mesej);
+        nextBtn.style.display = 'none';
+        img.style.display = 'none';
+        const msg = document.createElement('h2');
+        msg.textContent = "✨ Good Luck Semua Calon SPM 2025! ✨";
+        msg.classList.add('fadeIn');
+        document.body.appendChild(msg);
       }
     });
   </script>
