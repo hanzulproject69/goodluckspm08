@@ -10,6 +10,50 @@
   <h1>🎓 Kenangan & Ucapan dari kami 🎓 </h1>
 
   <div class="card">
+    <div class="message-section">
+  <h2>Tinggalkan Ucapan 💬</h2>
+  <input type="text" id="name" placeholder="Nama anda">
+  <textarea id="message" placeholder="Tulis ucapan anda di sini..."></textarea>
+  <button id="sendBtn">Hantar</button>
+
+  <h3>Mesej Terkini:</h3>
+  <div id="messageList"></div>
+</div>
+
+<script>
+  const apiUrl = "PASTE_URL_WEB_APP_KAU_DI_SINI";
+
+  // Hantar mesej
+  document.getElementById("sendBtn").addEventListener("click", async () => {
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+    if (!name || !message) return alert("Isi nama dan mesej dulu ya!");
+
+    await fetch(apiUrl, {
+      method: "POST",
+      body: JSON.stringify({ name, message })
+    });
+
+    document.getElementById("message").value = "";
+    loadMessages();
+  });
+
+  // Papar mesej
+  async function loadMessages() {
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    const messageList = document.getElementById("messageList");
+    messageList.innerHTML = data.reverse().map(m => `
+      <div class="msg">
+        <strong>${m.name}</strong>: ${m.message}<br>
+        <small>${new Date(m.time).toLocaleString()}</small>
+      </div>
+    `).join("");
+  }
+
+  loadMessages();
+</script>
+
     <img id="kenangan" src="kenangan1.jpg" alt="Kenangan SPM" />
     
     <div class="buttons">
@@ -89,6 +133,7 @@
   </script>
 </body>
 </html>
+
 
 
 
